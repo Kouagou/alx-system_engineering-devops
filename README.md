@@ -1,0 +1,1 @@
+This project encompasses multiple assignments focused on shell scripting. Each assignment entails the manipulation of directories, files, and the execution of diverse commands. The overarching goal of this project is to showcase adeptness in shell scripting and adeptness in conducting command-line tasks.
