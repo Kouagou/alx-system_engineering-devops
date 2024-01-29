@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# A Bash script that displays lines containing the bash word
+# using the previous exercise command
+
+ps auxf | grep bash
