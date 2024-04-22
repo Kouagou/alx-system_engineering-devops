@@ -13,16 +13,13 @@ if __name__ == "__main__":
     todos = res.json()
 
     employe_name = requests.get(url).json().get("name")
-    try:
-        number_of_done_tasks = len([todo for todo in todos
+    number_of_done_tasks = len([todo for todo in todos
                                     if todo.get("completed") is True])
-        total_number_of_tasks = len([todo for todo in todos])
+    total_number_of_tasks = len([todo for todo in todos])
 
-        print("Employee {} is done with tasks({}/{}):"
-              .format(employe_name, number_of_done_tasks,
-                      total_number_of_tasks))
-        for todo in todos:
-            if todo.get("completed") is True:
-                print("\t {}".format(todo.get("title")))
-    except IndexError:
-        pass
+    print("Employee {} is done with tasks({}/{}):"
+          .format(employe_name, number_of_done_tasks,
+                  total_number_of_tasks))
+    for todo in todos:
+        if todo.get("completed") is True:
+            print("\t {}".format(todo.get("title")))
