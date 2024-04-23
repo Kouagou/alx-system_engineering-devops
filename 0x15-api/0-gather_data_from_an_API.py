@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     employe_name = requests.get(url).json().get("name")
     number_of_done_tasks = len([todo for todo in todos
-                                    if todo.get("completed") is True])
+                                if todo.get("completed") is True])
     total_number_of_tasks = len([todo for todo in todos])
 
     print("Employee {} is done with tasks({}/{}):"
