@@ -65,7 +65,6 @@ server {
 
         server_name _;
         add_header X-Served-By $hostname;
-        rewrite ^/redirect_me https://www.alxafrica.com permanent;
 
         location / {
                 # First attempt to serve request as file, then
