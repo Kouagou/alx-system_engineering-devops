@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Quering the Reddit API and returns the number of subscribers. """
+""" Querying the Reddit API and returning the number of subscribers. """
 import requests
 
 
@@ -9,12 +9,15 @@ def number_of_subscribers(subreddit):
         subreddit.
     """
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    headers = {
-        "User-agent": "Mozilla/5.0"
-    }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 200:
-        datas = response.json()
-        return datas['data']['subscribers']
-    else:
+    headers = {"User-Agent": "Mozilla/5.0"}
+    try:
+        response = requests.get(url, headers=headers, allow_redirects=False)
+        # print("Status Code:", response.status_code)
+        if response.status_code == 200:
+            data = response.json()
+            if 'data' in data and 'subscribers' in data['data']:
+                return data['data']['subscribers']
+        return 0
+    except requests.RequestException as e:
+        # print(f"An error occurred: {e}")
         return 0
